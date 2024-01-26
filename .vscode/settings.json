@@ -1,0 +1,10 @@
+{
+  "workbench.colorTheme": "Material Theme",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontWeight": "normal",
+  "window.zoomLevel": 0,
+  "editor.fontSize": 15,
+  "files.autoSave": "afterDelay",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
