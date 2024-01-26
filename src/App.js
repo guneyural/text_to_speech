@@ -34,7 +34,7 @@ function App() {
       const params = {
         Text: text,
         OutputFormat: "mp3",
-        VoiceId: "Joanna",
+        VoiceId: "Filiz",
       };
 
       const data = await polly.synthesizeSpeech(params).promise();
