@@ -54,26 +54,48 @@ function App() {
     }
   };
 
-  return (
-    <div className="flex items-center justify-center flex-col w-full h-screen">
-      <div className="flex justify-between items-center relative rounded-md border border-gray-200 pb-3 pt-1 px-4 w-full md:w-75% lg:w-50%">
-        <textarea
-          type="text"
-          placeholder="Start typing..."
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          rows={2}
-          className="resize-none flex-1 outline-none pt-5"
-        />
+  const handleDownload = () => {
+    if (audio) {
+      const a = document.createElement("a");
+      a.href = audio.src;
+      a.download = "speech.mp3";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  };
 
+  return (
+    <>
+      {audio ? (
         <button
-          className="bg-black h-10 w-10 rounded-full flex items-center justify-center m-1"
-          onClick={handleAudio}
+          className="bg-yellow-300 px-4 py-2 rounded m-5"
+          onClick={handleDownload}
         >
-          <HiVolumeUp color="#efefef" size={20} />
+          mp3 indir
         </button>
+      ) : null}
+
+      <div className="flex items-center justify-center flex-col w-full h-screen">
+        <div className="flex justify-between items-center relative rounded-md border border-gray-200 pb-3 pt-1 px-4 w-full md:w-75% lg:w-50%">
+          <textarea
+            type="text"
+            placeholder="Start typing..."
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            rows={2}
+            className="resize-none flex-1 outline-none pt-5"
+          />
+
+          <button
+            className="bg-black h-10 w-10 rounded-full flex items-center justify-center m-1"
+            onClick={handleAudio}
+          >
+            <HiVolumeUp color="#efefef" size={20} />
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
